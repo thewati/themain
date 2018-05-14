@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Log To Power Panel</title>
+		
+		<style type='text/css'>
+            body {
+                background: #E6E6FA; 
+            }
+            
+            .button1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 26px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    
+    border: 1px solid green;
+}
+.button1:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+            </style>
+		
+		<script>
+			function verify()
+			{
+				 var user=document.getElementById("user").value;
+				 button="true";
+				if(user=="1234")
+				{
+					window.open("panel.htm");
+					
+				}
+				
+				if(user.length != 4)
+				{
+					alert("PLEASE ENTER 4 DIGIT PASSCODE");
+					button="false";
+				}
+				
+			/*	if(user.length < 1 || user.length > 4)
+				{
+					alert("PLEASE ENTER 4 DIGIT PASSCODE");
+					button="false";
+				} */
+				if(button=="false")
+				{
+					return false;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1><center>SMART OFFICE CONTROL SYSTEM CONTROL PANEL</center></h1>
+		<hr>
+		<br/>
+		<center>
+		<form>
+			<fieldset style="width:300px;">
+			<Legend>Please Enter Four Digit Passcode</Legend>
+			<label>Passcode: <input type="password" id="user" ></label>
+			<br /><br />
+			<input id="button" type="submit" value="Login" onClick="verify()" class="button1">
+	<!--	<h1>Click Submit after entering passcode to go to Control Panel</h1>  -->
+		</fieldset>
+		</form>
+		</center>
+	</body>
+</html>

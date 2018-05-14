@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	
+	<style type='text/css'>
+            body {
+                background: #E6E6FA; 
+            }
+            
+            .button1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 26px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    
+    border: 1px solid green;
+}
+.button1:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.buttonout {
+    background-color: #F00; /* Green */
+    /*border: none;*/
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    
+    border: 1px solid green;
+}
+.buttonout:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+            </style>
+	
+<script>window.setInterval(function(){
+nocache = "&nocache=" + Math.random() * 10;
+var request = new XMLHttpRequest();
+request.onreadystatechange = function() {
+if (this.readyState == 4) {
+if (this.status == 200) {
+if (this.responseText != null) {
+document.getElementById("analoge_data").innerHTML = this.responseText;
+}}}}
+request.open("GET", "ajaxrefresh" + nocache, true);
+request.send(null);
+}, 5000);
+
+function changeLEDStatus() {
+nocache = "&nocache=" + Math.random() * 10;
+var request = new XMLHttpRequest();
+request.onreadystatechange = function() {
+if (this.readyState == 4) {
+if (this.status == 200) {
+if (this.responseText != null) {
+document.getElementById("led_status").innerHTML = this.responseText;
+}}}}
+request.open("GET", "?ledstatus=1" + nocache, true);
+request.send(null);
+}
+
+function changeFANStatus() {
+nocache = "&nocache=" + Math.random() * 10;
+var request = new XMLHttpRequest();
+request.onreadystatechange = function() {
+if (this.readyState == 4) {
+if (this.status == 200) {
+if (this.responseText != null) {
+document.getElementById("fan_status").innerHTML = this.responseText;
+}}}}
+request.open("GET", "?fanstatus=1" + nocache, true);
+request.send(null);
+}
+
+function changeALARMStatus() {
+nocache = "&nocache=" + Math.random() * 10;
+var request = new XMLHttpRequest();
+request.onreadystatechange = function() {
+if (this.readyState == 4) {
+if (this.status == 200) {
+if (this.responseText != null) {
+document.getElementById("alarm_status").innerHTML = this.responseText;
+}}}}
+request.open("GET", "?alarmstatus=1" + nocache, true);
+request.send(null);
+}
+
+ </script></head>
+
+<h1>Power (Watts) and Temperature (Celsius)</h1><div id="analoge_data">Loading power and temperature...</div> 
+<br />
+
+
+<h1>Lights</h1>
+<div>Light 1 Status: <span id="led_status">
+Off
+</span> | <button onclick="changeLEDStatus()" class="button1">Switch</button> </div>
+
+
+<h1>Fans</h1>
+<div>Fan 1 Status: <span id="fan_status">
+Off
+</span> | <button onclick="changeFANStatus()" class="button1">Switch</button> </div>
+
+<h1>Alarms</h1>
+<div>Alarm 1 Status: <span id="alarm_status">
+Off
+</span> | <button onclick="changeALARMStatus()" class="button1">Switch</button> </div>
+<br/>
+<br/>
+<button onclick="parent.location='login.htm';" class="buttonout">Logout</button>
+
+</html>
